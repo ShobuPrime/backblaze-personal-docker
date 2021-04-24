@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:alpine-3.12
+FROM jlesage/baseimage-gui:debian-10
 
 # Install required packages
 RUN apk --update --no-cache add xvfb x11vnc openbox samba-winbind-clients wine
@@ -27,5 +27,4 @@ RUN chmod +x /init.sh
 ENV APP_NAME="Backblaze-Personal"
 
 # Set the start script as entrypoint
-#ENTRYPOINT /init.sh
-CMD sh /init.sh
+ENTRYPOINT ["/init.sh"]
