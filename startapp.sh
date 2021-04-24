@@ -26,8 +26,8 @@ until [ -f $WINEPREFIX/drive_c/Program\ Files/Backblaze/bzbui.exe ]; do
 	echo "Backblaze not installed"
 	echo "Initializing the wine prefix"
 	wine64 wineboot -i -u
-	winecfg
-	#configure_wine
+	#winecfg
+	configure_wine
 	echo "Downloading the Backblaze personal installer..."
        	wget https://www.backblaze.com/win32/install_backblaze.exe -P /wine/drive_c/
 	echo "Backblaze installer started, please go through the graphical setup in by logging onto the containers vnc server"
@@ -38,8 +38,8 @@ done
 
 
 if [ -f $WINEPREFIX/drive_c/Program\ Files/Backblaze/bzbui.exe ]; then
-	winecfg
-	#configure_wine
+	#winecfg
+	configure_wine
 	echo "Backblaze found, starting the Backblaze client..."
 	wine64 $WINEPREFIX/drive_c/Program\ Files/Backblaze/bzbui.exe -noqiet
 fi
