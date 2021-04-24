@@ -26,4 +26,4 @@ COPY ./start.sh /start.sh
 ENV APP_NAME="Backblaze-Personal"
 
 # Set the start script as entrypoint
-ENTRYPOINT ./start.sh
+ENTRYPOINT /start.sh
