@@ -1,9 +1,9 @@
 FROM jlesage/baseimage-gui:alpine-3.12
 
 # Install required packages
-RUN apk --update --no-cache add xvfb x11vnc openbox samba-winbind-clients
-RUN echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk --no-cache add wine
+#RUN apk --update --no-cache add xvfb x11vnc openbox samba-winbind-clients
+RUN apk --update --no-cache add samba-winbind-clients
+RUN echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && apk --no-cache add wine
 
 # Configure the wine prefix location
 RUN mkdir /wine
@@ -22,8 +22,8 @@ ENV COMPUTER_NAME bz-docker
 RUN mkdir /data
 
 # Copy the start script to the container
-COPY ./init.sh /init.sh
-RUN chmod +x /init.sh
+COPY ./startapp.sh /startapp.sh
+RUN chmod +x /startapp.sh
 
 # Set the name of the application.
 ENV APP_NAME="Backblaze-Personal"
@@ -31,4 +31,4 @@ ENV APP_NAME="Backblaze-Personal"
 # Set the start script as entrypoint
 #ENTRYPOINT ["/init.sh"]
 #CMD ["run"]
-CMD sh /init.sh
+#CMD sh /init.sh
