@@ -7,6 +7,7 @@ RUN echo "https://dl-4.alpinelinux.org/alpine/edge/community" >> /etc/apk/reposi
 
 # Configure the wine prefix location
 RUN mkdir /wine
+RUN chmod ${USER_ID}:${GROUP_ID}
 ENV WINEPREFIX /wine/
 
 # Disable wine debug messages
@@ -20,6 +21,7 @@ ENV COMPUTER_NAME bz-docker
 
 # Create the data Directory
 RUN mkdir /data
+RUN chmod ${USER_ID}:${GROUP_ID}
 
 # Copy the start script to the container
 COPY ./startapp.sh /startapp.sh
@@ -29,7 +31,3 @@ RUN chmod +x /startapp.sh
 ENV APP_NAME="Backblaze-Personal"
 
 WORKDIR /
-# Set the start script as entrypoint
-#ENTRYPOINT ["/init.sh"]
-#CMD ["run"]
-#CMD sh /init.sh
