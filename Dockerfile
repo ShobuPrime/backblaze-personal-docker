@@ -20,11 +20,12 @@ ENV COMPUTER_NAME bz-docker
 RUN mkdir /data
 
 # Copy the start script to the container
-COPY ./start.sh /start.sh
-RUN chmod +x /start.sh
+COPY ./init.sh /init.sh
+RUN chmod +x /init.sh
 
 # Set the name of the application.
 ENV APP_NAME="Backblaze-Personal"
 
 # Set the start script as entrypoint
-ENTRYPOINT /start.sh
+WORKDIR /
+ENTRYPOINT ./init.sh
