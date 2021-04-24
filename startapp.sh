@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 #echo "Starting the virtual display & vnc server"
 #rm -f /tmp/.X0-lock
 #Xvfb :0 -screen 0 1024x768x24 & openbox & x11vnc -nopw -q -forever -loop -shared &
+
+#exec /usr/bin/wine
 
 function configure_wine {
 	unlink $WINEPREFIX/dosdevices/z:
