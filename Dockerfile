@@ -28,6 +28,7 @@ RUN chmod +x /startapp.sh
 # Set the name of the application.
 ENV APP_NAME="Backblaze-Personal"
 
+WORKDIR /
 # Set the start script as entrypoint
 #ENTRYPOINT ["/init.sh"]
 #CMD ["run"]
